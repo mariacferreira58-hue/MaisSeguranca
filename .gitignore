@@ -1,0 +1,22 @@
+
+# Pastas geradas pelo Visual Studio e .NET
+.vs/
+**/bin/
+**/obj/
+
+# Configurações locais com senhas
+**/appsettings.json
+**/appsettings.Development.json
+**/.env
+
+# Arquivos temporários
+*.user
+*.suo
+*.log
+Thumbs.db
+.DS_Store
+
+# Bancos de dados locais
+*.mdf
+*.ldf
+*.ndf

@@ -1,0 +1,680 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --azul-escuro: #061b37;
+    --azul: #155eef;
+    --azul-claro: #edf4ff;
+    --fundo: #f4f7fb;
+    --texto: #172b4d;
+    --texto-suave: #728198;
+    --borda: #e5eaf2;
+    --verde: #16834a;
+    --laranja: #c46b12;
+    --vermelho: #c73535;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    font-size: 15px;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ========================================
+   MENU LATERAL
+   Mesmo padrão da página VIATURAS
+======================================== */
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    padding: 28px 17px 20px;
+    display: flex;
+    flex-direction: column;
+    background: #061b37;
+    color: #fff;
+    z-index: 100;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 8px 32px;
+    color: #fff;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.marca-icone {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: #155eef;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.marca strong {
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.marca small {
+    display: block;
+    margin-top: 5px;
+    color: #b4c5df;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.menu-titulo {
+    padding: 0 12px;
+    color: #8fa5c4;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+
+.menu-lateral nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.menu-link,
+.sair {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 13px;
+    border: none;
+    border-radius: 9px;
+    color: #d2deef;
+    background: transparent;
+    text-decoration: none;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.25;
+    white-space: nowrap;
+    transition: background .2s, color .2s;
+}
+
+.menu-link:hover {
+    color: #fff;
+    background: #102f55;
+}
+
+.menu-link.ativo {
+    color: #fff;
+    background: #173d6d;
+    box-shadow: inset 3px 0 #155eef;
+}
+
+.sair {
+    min-height: 45px;
+    margin-top: auto;
+    padding: 20px 13px 0;
+    border-top: 1px solid #263d5c;
+    border-radius: 0;
+    color: #d2deef;
+}
+
+.sair:hover {
+    color: #fff;
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+======================================== */
+
+.conteudo {
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    margin-left: 250px;
+    padding: 32px;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 27px;
+}
+
+.caminho {
+    margin-bottom: 9px;
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+.cabecalho h1 {
+    color: var(--texto);
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: -.8px;
+    line-height: 1.25;
+}
+
+.subtitulo {
+    margin-top: 9px;
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #dce9ff;
+    color: #174a8b;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.usuario strong {
+    display: block;
+    color: var(--texto);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.usuario small {
+    display: block;
+    margin-top: 5px;
+    color: var(--texto-suave);
+    font-size: 12px;
+}
+
+/* ========================================
+   BANNER DE BOAS-VINDAS
+======================================== */
+
+.boas-vindas {
+    min-height: 165px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 30px;
+    border-radius: 15px;
+    background: linear-gradient(115deg, #082b55, #155eef);
+    box-shadow: 0 8px 25px #133e7514;
+    color: #fff;
+}
+
+.etiqueta {
+    display: inline-block;
+    color: #83b2ff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.boas-vindas h2 {
+    margin: 11px 0 8px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.boas-vindas p {
+    max-width: 700px;
+    color: #d8e6ff;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.icone-destaque {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffffff2a;
+    border-radius: 18px;
+    background: #ffffff19;
+    color: #fff;
+    font-size: 54px;
+}
+
+/* ========================================
+   TÍTULOS DAS SEÇÕES
+======================================== */
+
+.secao {
+    margin-bottom: 25px;
+}
+
+.titulo-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0 14px;
+}
+
+.titulo-secao h2 {
+    color: var(--texto);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.titulo-secao p {
+    margin-top: 6px;
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+/* ========================================
+   INDICADORES DA FROTA
+======================================== */
+
+.indicadores {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+    margin: 23px 0;
+}
+
+.cartao-indicador {
+    min-width: 0;
+    min-height: 105px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 21px 18px;
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+    background: #fff;
+}
+
+.indicador-icone {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.azul {
+    background: #e9f1ff;
+    color: #155eef;
+}
+
+.verde {
+    background: #e4f7ec;
+    color: #16834a;
+}
+
+.laranja {
+    background: #fff0df;
+    color: #c46b12;
+}
+
+.cinza {
+    background: #edf0f5;
+    color: #63718a;
+}
+
+.vermelho {
+    background: #ffeded;
+    color: #c73535;
+}
+
+.cartao-indicador p {
+    margin-bottom: 7px;
+    color: var(--texto-suave);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.cartao-indicador h2 {
+    color: var(--texto);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* ========================================
+   PAINÉIS INFERIORES
+======================================== */
+
+.painel-inferior {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    align-items: start;
+    gap: 17px;
+}
+
+.painel {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+    background: #fff;
+}
+
+.painel-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 24px 25px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.painel-cabecalho h2 {
+    color: var(--texto);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.painel-cabecalho p {
+    margin-top: 7px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.painel-cabecalho a {
+    color: var(--azul);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.painel-cabecalho a:hover {
+    text-decoration: underline;
+}
+
+.lista-preventivas {
+    padding: 5px 20px;
+}
+
+.estado-vazio {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.estado-vazio span {
+    color: #8ba5c7;
+    font-size: 24px;
+}
+
+.estado-vazio p {
+    font-size: 12px;
+}
+
+/* ========================================
+   ACESSO RÁPIDO
+======================================== */
+
+.acao-rapida {
+    min-height: 69px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--borda);
+    color: var(--texto);
+    text-decoration: none;
+    transition: background .2s;
+}
+
+.acao-rapida:hover {
+    background: #f8faff;
+}
+
+.acao-rapida:last-child {
+    border-bottom: none;
+}
+
+.acao-icone {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.acao-texto {
+    min-width: 0;
+    flex: 1;
+}
+
+.acao-texto strong {
+    display: block;
+    color: var(--texto);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.acao-texto small {
+    display: block;
+    margin-top: 5px;
+    color: var(--texto-suave);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.seta {
+    color: #8493a7;
+    font-size: 23px;
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+.rodape {
+    margin-top: 26px;
+    padding: 20px 0 5px;
+    border-top: 1px solid var(--borda);
+    color: #8b97a9;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* ========================================
+   TELAS MÉDIAS
+======================================== */
+
+@media (max-width: 1200px) {
+    .conteudo {
+        padding: 25px;
+    }
+
+    .indicadores {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .painel-inferior {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   TABLETS E CELULARES
+======================================== */
+
+@media (max-width: 850px) {
+    .menu-lateral {
+        position: static;
+        width: 100%;
+        padding: 14px;
+    }
+
+    .marca {
+        padding: 0 8px 12px;
+    }
+
+    .menu-titulo {
+        display: none;
+    }
+
+    .menu-lateral nav {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        margin-top: 5px;
+        overflow-x: auto;
+    }
+
+    .menu-link {
+        min-height: 40px;
+        flex-shrink: 0;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .sair {
+        display: none;
+    }
+
+    .conteudo {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+    }
+}
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 560px) {
+    .conteudo {
+        padding: 15px;
+    }
+
+    .cabecalho {
+        align-items: flex-start;
+    }
+
+    .cabecalho h1 {
+        font-size: 23px;
+    }
+
+    .usuario {
+        display: none;
+    }
+
+    .boas-vindas {
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .boas-vindas h2 {
+        font-size: 20px;
+    }
+
+    .boas-vindas p {
+        font-size: 12px;
+    }
+
+    .icone-destaque {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 30px;
+    }
+
+    .indicadores {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .cartao-indicador {
+        min-height: 88px;
+        gap: 12px;
+        padding: 14px 12px;
+    }
+
+    .indicador-icone {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 17px;
+    }
+
+    .cartao-indicador p {
+        font-size: 11px;
+    }
+
+    .cartao-indicador h2 {
+        font-size: 23px;
+    }
+
+    .painel-cabecalho {
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .painel-cabecalho h2 {
+        font-size: 17px;
+    }
+
+    .painel-cabecalho p {
+        font-size: 12px;
+    }
+
+    .acao-rapida {
+        padding: 12px 15px;
+    }
+}

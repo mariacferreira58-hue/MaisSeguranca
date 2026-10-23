@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaturas | +Segurança</title>
+    <link rel="stylesheet" href="../css/viaturas.css">
+    <script src="../js/viaturas.js" defer></script>
+</head>
+<body>
+    <aside class="menu-lateral">
+        <a href="dashboard.html" class="marca">
+            <span class="marca-icone">✚</span>
+            <span>
+                <strong>+Segurança</strong>
+                <small>Gestão de Frota</small>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENU PRINCIPAL</p>
+
+        <nav>
+            <a href="dashboard.html" class="menu-link">▦ <span>Início</span></a>
+            <a href="viaturas.html" class="menu-link ativo">🚔 <span>Viaturas</span></a>
+            <a href="manutencoes.html" class="menu-link">🔧 <span>Manutenções</span></a>
+            <a href="preventivas.html" class="menu-link">◷ <span>Preventivas</span></a>
+            <a href="historico.html" class="menu-link">▤ <span>Histórico</span></a>
+        </nav>
+
+        <a href="login.html" class="sair">↪ <span>Sair do sistema</span></a>
+    </aside>
+
+    <main class="conteudo">
+        <header class="cabecalho">
+            <div>
+                <p class="caminho">Início / Viaturas</p>
+                <h1>Gestão de Viaturas</h1>
+                <p class="subtitulo">Cadastre e acompanhe a frota de veículos.</p>
+            </div>
+            <div class="usuario">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Gestor da frota</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="boas-vindas">
+            <div>
+                <span class="etiqueta">CONTROLE DA FROTA</span>
+                <h2>Viaturas da corporação</h2>
+                <p>Mantenha os dados dos veículos organizados e atualizados.</p>
+            </div>
+            <div class="icone-destaque">🚔</div>
+        </section>
+
+        <section class="indicadores">
+            <article class="cartao-indicador">
+                <span class="indicador-icone azul">🚔</span>
+                <div>
+                    <p>Total de viaturas</p>
+                    <h2 id="totalViaturas">0</h2>
+                </div>
+            </article>
+
+            <article class="cartao-indicador">
+                <span class="indicador-icone verde">✓</span>
+                <div>
+                    <p>Disponíveis</p>
+                    <h2 id="totalDisponiveis">0</h2>
+                </div>
+            </article>
+
+            <article class="cartao-indicador">
+                <span class="indicador-icone laranja">🔧</span>
+                <div>
+                    <p>Em manutenção</p>
+                    <h2 id="totalManutencao">0</h2>
+                </div>
+            </article>
+
+            <article class="cartao-indicador">
+                <span class="indicador-icone cinza">⊘</span>
+                <div>
+                    <p>Inativas</p>
+                    <h2 id="totalInativas">0</h2>
+                </div>
+            </article>
+        </section>
+
+        <section class="painel">
+            <div class="painel-cabecalho">
+                <div>
+                    <h2>Lista de viaturas</h2>
+                    <p>Consulte e gerencie os veículos cadastrados.</p>
+                </div>
+                <button class="botao-principal" id="abrirCadastro" type="button">
+                    + Cadastrar viatura
+                </button>
+            </div>
+
+            <div class="filtros">
+                <div class="campo-pesquisa">
+                    <span>⌕</span>
+                    <input id="pesquisa" type="search"
+                        placeholder="Pesquisar por placa, marca ou modelo...">
+                </div>
+
+                <select id="filtroStatus" aria-label="Filtrar por status">
+                    <option value="">Todos os status</option>
+                    <option value="Disponível">Disponível</option>
+                    <option value="Em manutenção">Em manutenção</option>
+                    <option value="Inativa">Inativa</option>
+                </select>
+            </div>
+
+            <div class="tabela-responsiva">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PLACA</th>
+                            <th>MARCA / MODELO</th>
+                            <th>ANO</th>
+                            <th>QUILOMETRAGEM</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaViaturas"></tbody>
+                </table>
+            </div>
+
+            <p class="mensagem-vazia" id="mensagemVazia">
+                Nenhuma viatura cadastrada. Clique em “Cadastrar viatura” para começar.
+            </p>
+
+            <div class="rodape-tabela">
+                <span id="quantidadeRegistros">0 viaturas</span>
+                <button id="limparPesquisa" class="botao-secundario" type="button">
+                    Limpar filtros
+                </button>
+            </div>
+        </section>
+
+        <footer>+Segurança · Gestão de Manutenção de Frota</footer>
+    </main>
+
+    <div class="modal" id="modalViatura" aria-hidden="true">
+        <div class="modal-conteudo" role="dialog"
+             aria-modal="true" aria-labelledby="tituloModal">
+            <div class="modal-cabecalho">
+                <div>
+                    <span class="etiqueta">DADOS DO VEÍCULO</span>
+                    <h2 id="tituloModal">Cadastrar viatura</h2>
+                    <p>Preencha as informações abaixo.</p>
+                </div>
+                <button id="fecharModal" class="botao-fechar"
+                        type="button" aria-label="Fechar">×</button>
+            </div>
+
+            <form id="formViatura">
+                <input type="hidden" id="viaturaId">
+
+                <div class="grade-formulario">
+                    <label>
+                        Placa *
+                        <input id="placa" name="placa" type="text"
+                            placeholder="ABC1D23" maxlength="10" required>
+                    </label>
+
+                    <label>
+                        Marca *
+                        <input id="marca" name="marca" type="text"
+                            placeholder="Ex.: Chevrolet" maxlength="50" required>
+                    </label>
+
+                    <label>
+                        Modelo *
+                        <input id="modelo" name="modelo" type="text"
+                            placeholder="Ex.: Trailblazer" maxlength="50" required>
+                    </label>
+
+                    <label>
+                        Ano *
+                        <input id="ano" name="ano" type="number"
+                            min="1900" max="2100" placeholder="2024" required>
+                    </label>
+
+                    <label>
+                        Quilometragem *
+                        <input id="quilometragem" name="quilometragem"
+                            type="number" min="0" placeholder="15000" required>
+                    </label>
+
+                    <label>
+                        Status *
+                        <select id="status" name="status" required>
+                            <option value="Disponível">Disponível</option>
+                            <option value="Em manutenção">Em manutenção</option>
+                            <option value="Inativa">Inativa</option>
+                        </select>
+                    </label>
+                </div>
+
+                <p id="mensagemFormulario" class="mensagem-formulario"
+                   role="status"></p>
+
+                <div class="botoes-formulario">
+                    <button type="button" id="cancelarCadastro"
+                        class="botao-secundario">Cancelar</button>
+                    <button type="submit" class="botao-principal"
+                        id="salvarViatura">Salvar viatura</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="notificacao" class="notificacao" role="status"></div>
+</body>
+</html>

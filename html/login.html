@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | +Segurança</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <main class="pagina-login">
+
+        <!-- MARCA E APRESENTAÇÃO -->
+        <section class="painel-esquerdo">
+
+            <div class="marca">
+
+                <div class="escudo">
+                    <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M50 4 L91 20 L86 65 Q77 91 50 108 Q23 91 14 65 L9 20 Z"
+                            fill="#2465d5"
+                            stroke="#ffffff"
+                            stroke-width="5"
+                        />
+
+                        <path
+                            d="M50 14 L80 26 L76 63 Q69 81 50 94 Q31 81 24 63 L20 26 Z"
+                            fill="#173c78"
+                        />
+
+                        <path
+                            d="M43 32 H57 V46 H71 V60 H57 V74 H43 V60 H29 V46 H43 Z"
+                            fill="#ffffff"
+                        />
+                    </svg>
+                </div>
+
+                <h1><span class="simbolo">✚</span> Segurança</h1>
+
+                <p>Gestão de Manutenção de Frota</p>
+
+            </div>
+
+            <div class="apresentacao">
+                <h2>
+                    Viaturas sempre prontas.<br>
+                    Mais segurança para todos.
+                </h2>
+            </div>
+
+        </section>
+
+        <!-- FORMULÁRIO DE LOGIN -->
+        <section class="painel-direito">
+
+            <form class="form-login" id="formLogin">
+
+                <h2>Bem-vindo!</h2>
+
+                <p class="subtitulo">
+                    Acesse sua conta para continuar.
+                </p>
+
+                <label for="email">E-mail</label>
+
+                <div class="campo-icone">
+                    <span class="icone-campo" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="M4 7l8 6 8-6"/>
+                        </svg>
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="E-mail"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <label for="senha">Senha</label>
+
+                <div class="campo-icone campo-senha">
+                    <span class="icone-campo" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="4" y="10" width="16" height="11" rx="2"/>
+                            <path d="M8 10V7a4 4 0 018 0v3"/>
+                            <circle cx="12" cy="15" r="1"/>
+                            <path d="M12 16v2"/>
+                        </svg>
+                    </span>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        id="mostrarSenha"
+                        aria-label="Mostrar senha"
+                        title="Mostrar senha"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="opcoes-login">
+
+                    <label class="lembrar">
+                        <input type="checkbox" id="lembrarMe">
+                        <span>Lembrar-me</span>
+                    </label>
+
+                    <button
+                        type="button"
+                        id="esqueciSenha"
+                        class="link-ajuda"
+                    >
+                        Esqueci minha senha
+                    </button>
+
+                </div>
+
+                <button type="submit" class="botao-entrar">
+                    Entrar
+                </button>
+
+                <p
+                    id="mensagemLogin"
+                    class="mensagem"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <div class="ajuda">
+                    <p>
+                        Ainda não tem uma conta?
+                        <button type="button" id="contatoAdministrador">
+                            Entre em contato com o administrador.
+                        </button>
+                    </p>
+                </div>
+
+            </form>
+
+            <p class="rodape-direito">
+                © 2026 +Segurança · Todos os direitos reservados
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="../js/login.js"></script>
+
+</body>
+</html>

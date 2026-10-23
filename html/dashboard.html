@@ -1,0 +1,161 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início | +Segurança</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="../js/dashboard.js" defer></script>
+</head>
+<body>
+    <aside class="menu-lateral">
+        <a href="dashboard.html" class="marca">
+            <span class="marca-icone">✚</span>
+            <span>
+                <strong>+Segurança</strong>
+                <small>Gestão de Frota</small>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENU PRINCIPAL</p>
+
+        <nav>
+            <a href="dashboard.html" class="menu-link ativo">▦ <span>Início</span></a>
+            <a href="viaturas.html" class="menu-link">🚔 <span>Viaturas</span></a>
+            <a href="manutencoes.html" class="menu-link">🔧 <span>Manutenções</span></a>
+            <a href="preventivas.html" class="menu-link">◷ <span>Preventivas</span></a>
+            <a href="historico.html" class="menu-link">▤ <span>Histórico</span></a>
+        </nav>
+
+        <a href="login.html" class="sair">↪ <span>Sair do sistema</span></a>
+    </aside>
+
+    <main class="conteudo">
+        <header class="cabecalho">
+            <div>
+                <p class="caminho">Início / Painel de controle</p>
+                <h1>Central da Frota</h1>
+                <p class="subtitulo">Acompanhe a situação da frota e das manutenções.</p>
+            </div>
+
+            <div class="usuario">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Gestor da frota</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="boas-vindas">
+            <div>
+                <span class="etiqueta">PAINEL DE GESTÃO</span>
+                <h2>Bem-vindo ao +Segurança!</h2>
+                <p>Controle a frota, planeje manutenções e mantenha as viaturas prontas para operação.</p>
+            </div>
+            <div class="icone-destaque">✚</div>
+        </section>
+
+        <section class="secao">
+            <div class="titulo-secao">
+                <div>
+                    <h2>Resumo da frota</h2>
+                    <p>Indicadores gerais do sistema.</p>
+                </div>
+            </div>
+
+            <div class="indicadores">
+                <article class="cartao-indicador">
+                    <span class="indicador-icone azul">🚔</span>
+                    <div>
+                        <p>Total de viaturas</p>
+                        <h2 id="totalViaturas">0</h2>
+                    </div>
+                </article>
+
+                <article class="cartao-indicador">
+                    <span class="indicador-icone verde">✓</span>
+                    <div>
+                        <p>Disponíveis</p>
+                        <h2 id="viaturasDisponiveis">0</h2>
+                    </div>
+                </article>
+
+                <article class="cartao-indicador">
+                    <span class="indicador-icone laranja">🔧</span>
+                    <div>
+                        <p>Em manutenção</p>
+                        <h2 id="viaturasManutencao">0</h2>
+                    </div>
+                </article>
+
+                <article class="cartao-indicador">
+                    <span class="indicador-icone cinza">!</span>
+                    <div>
+                        <p>Manutenções pendentes</p>
+                        <h2 id="manutencoesPendentes">0</h2>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="painel-inferior">
+            <article class="painel">
+                <div class="painel-cabecalho">
+                    <div>
+                        <h2>Próximas preventivas</h2>
+                        <p>Planejamento de manutenção.</p>
+                    </div>
+                    <a href="preventivas.html">Ver todas →</a>
+                </div>
+
+                <div id="listaPreventivas" class="lista-preventivas">
+                    <div class="estado-vazio">
+                        <span>◷</span>
+                        <p>Nenhuma preventiva carregada.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="painel painel-acoes">
+                <div class="painel-cabecalho">
+                    <div>
+                        <h2>Acesso rápido</h2>
+                        <p>Atalhos do sistema.</p>
+                    </div>
+                </div>
+
+                <a href="viaturas.html" class="acao-rapida">
+                    <span class="acao-icone azul">＋</span>
+                    <span class="acao-texto">
+                        <strong>Cadastrar viatura</strong>
+                        <small>Adicionar veículo à frota</small>
+                    </span>
+                    <span class="seta">›</span>
+                </a>
+
+                <a href="manutencoes.html" class="acao-rapida">
+                    <span class="acao-icone laranja">🔧</span>
+                    <span class="acao-texto">
+                        <strong>Registrar manutenção</strong>
+                        <small>Registrar serviço realizado</small>
+                    </span>
+                    <span class="seta">›</span>
+                </a>
+
+                <a href="preventivas.html" class="acao-rapida">
+                    <span class="acao-icone verde">◷</span>
+                    <span class="acao-texto">
+                        <strong>Planejar preventiva</strong>
+                        <small>Organizar próximos serviços</small>
+                    </span>
+                    <span class="seta">›</span>
+                </a>
+            </article>
+        </section>
+
+        <footer class="rodape">+Segurança · Gestão de Manutenção de Frota</footer>
+    </main>
+</body>
+</html>

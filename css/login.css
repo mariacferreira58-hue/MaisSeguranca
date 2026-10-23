@@ -1,0 +1,481 @@
+
+/* ========================================
+   CONFIGURAÇÃO GERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: #071b38;
+    color: #17345f;
+}
+
+/* ========================================
+   FUNDO DA PÁGINA
+======================================== */
+
+.pagina-login {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    padding: 25px 3%;
+
+    background:
+        linear-gradient(
+            rgba(3, 17, 39, 0.25),
+            rgba(3, 17, 39, 0.40)
+        ),
+        url("../css/foto.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ========================================
+   MARCA +SEGURANÇA
+======================================== */
+
+.painel-esquerdo {
+    background: transparent;
+    color: white;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 500px;
+}
+
+.marca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+/* ESCUDO */
+
+.escudo {
+    width: 105px;
+    height: 122px;
+    margin-bottom: 2px;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+.escudo svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* NOME DO SISTEMA */
+
+.marca h1 {
+    color: white;
+    font-size: 55px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.simbolo {
+    color: #3679f6;
+}
+
+.marca p {
+    color: white;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-top: 0;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* FRASE DA MARCA */
+
+.apresentacao {
+    max-width: 390px;
+    text-align: center;
+    margin: 0;
+}
+
+.apresentacao h2 {
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.7;
+    margin: 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* ELEMENTOS NÃO UTILIZADOS */
+
+.apresentacao > p,
+.etiqueta,
+.destaque,
+.rodape-esquerdo {
+    display: none;
+}
+
+/* ========================================
+   ÁREA DO LOGIN
+======================================== */
+
+.painel-direito {
+    background: transparent;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+/* CARTÃO BRANCO */
+
+.form-login {
+    width: 100%;
+    max-width: 390px;
+    background: #ffffff;
+    color: #17345f;
+    border: 1px solid #e2e9f3;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.20);
+}
+
+/* TÍTULO E SUBTÍTULO */
+
+.form-login h2 {
+    color: #17345f;
+    font-size: 28px;
+    margin-bottom: 7px;
+}
+
+.subtitulo {
+    color: #718198;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* ========================================
+   RÓTULOS DOS CAMPOS
+======================================== */
+
+.form-login > label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0 8px;
+    color: #344966;
+}
+
+/* ========================================
+   CAMPOS DE E-MAIL E SENHA
+======================================== */
+
+.campo-icone {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    border: 1px solid #d8e1ed;
+    border-radius: 7px;
+    padding: 0 11px;
+    background: white;
+}
+
+.campo-icone:focus-within {
+    border-color: #3476e0;
+    box-shadow: 0 0 0 2px #3476e01a;
+}
+
+.icone-campo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 9px;
+}
+
+.icone-campo svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #526985;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.campo-icone input {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #183153;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.campo-icone input::placeholder {
+    color: #8a99ad;
+    font-size: 15px;
+}
+
+/* ========================================
+   BOTÃO MOSTRAR SENHA
+======================================== */
+
+.campo-senha {
+    padding-right: 9px;
+}
+
+.campo-senha button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.campo-senha button svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: #70819a;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ========================================
+   LEMBRAR-ME E ESQUECI A SENHA
+======================================== */
+
+.opcoes-login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 16px 0 20px;
+}
+
+.lembrar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #64748b;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.lembrar input {
+    width: 14px;
+    height: 14px;
+    accent-color: #3269df;
+}
+
+.link-ajuda {
+    border: none;
+    background: transparent;
+    color: #2465d5;
+    font-size: 11px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.link-ajuda:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   BOTÃO ENTRAR
+======================================== */
+
+.botao-entrar {
+    width: 100%;
+    height: 44px;
+    background: #3269df;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.botao-entrar:hover {
+    background: #2054bf;
+}
+
+.botao-entrar:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* ========================================
+   MENSAGENS
+======================================== */
+
+.mensagem {
+    font-size: 13px;
+    margin-top: 12px;
+    line-height: 1.5;
+    color: #9a6500;
+}
+
+/* ========================================
+   CONTATO COM ADMINISTRADOR
+======================================== */
+
+.ajuda {
+    border-top: 1px solid #e9edf4;
+    text-align: center;
+    margin-top: 19px;
+    padding-top: 15px;
+}
+
+.ajuda p {
+    color: #718198;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.ajuda button {
+    border: none;
+    background: transparent;
+    color: #2465d5;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.ajuda button:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+.rodape-direito {
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 15px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ========================================
+   TELAS MENORES
+======================================== */
+
+@media (max-width: 700px) {
+
+    .pagina-login {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 20px 15px;
+        background-position: center;
+    }
+
+    .painel-esquerdo {
+        min-height: auto;
+        padding: 20px 10px;
+    }
+
+    .escudo {
+        width: 75px;
+        height: 87px;
+    }
+
+    .marca {
+        margin-bottom: 14px;
+    }
+
+    .marca h1 {
+        font-size: 32px;
+    }
+
+    .marca p {
+        font-size: 14px;
+    }
+
+    .apresentacao h2 {
+        font-size: 14px;
+    }
+
+    .painel-direito {
+        padding: 10px 0;
+    }
+
+    .form-login {
+        max-width: 400px;
+        padding: 25px;
+    }
+
+    .form-login h2 {
+        font-size: 25px;
+    }
+
+    .subtitulo {
+        font-size: 13px;
+    }
+
+    .form-login > label {
+        font-size: 13px;
+    }
+
+    .campo-icone input {
+        font-size: 14px;
+    }
+
+    .botao-entrar {
+        font-size: 14px;
+    }
+
+    .rodape-direito {
+        margin-bottom: 8px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 380px) {
+
+    .form-login {
+        padding: 20px;
+    }
+
+    .marca h1 {
+        font-size: 28px;
+    }
+
+    .opcoes-login {
+        flex-wrap: wrap;
+    }
+
+    .link-ajuda {
+        font-size: 10px;
+    }
+}

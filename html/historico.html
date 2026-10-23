@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico | +Segurança</title>
+
+    <link rel="stylesheet" href="../css/historico.css">
+    <script src="../js/historico.js" defer></script>
+</head>
+<body>
+
+    <aside class="menu-lateral">
+        <a href="dashboard.html" class="marca">
+            <span class="marca-icone">✚</span>
+            <span>
+                <strong>+Segurança</strong>
+                <small>Gestão de Frota</small>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENU PRINCIPAL</p>
+
+        <nav>
+            <a href="dashboard.html" class="menu-link">▦ <span>Início</span></a>
+            <a href="viaturas.html" class="menu-link">🚔 <span>Viaturas</span></a>
+            <a href="manutencoes.html" class="menu-link">🔧 <span>Manutenções</span></a>
+            <a href="preventivas.html" class="menu-link">◷ <span>Preventivas</span></a>
+            <a href="historico.html" class="menu-link ativo">▤ <span>Histórico</span></a>
+        </nav>
+
+        <a href="login.html" class="sair">↪ <span>Sair do sistema</span></a>
+    </aside>
+
+    <main class="conteudo">
+
+        <header class="cabecalho">
+            <div>
+                <h1>Histórico de manutenções</h1>
+                <p>Consulte os serviços realizados e acompanhe o histórico da frota.</p>
+            </div>
+        </header>
+
+        <section class="resumo">
+
+            <article class="cartao-resumo">
+                <div class="resumo-icone azul">▤</div>
+                <div>
+                    <p>Total de registros</p>
+                    <h2 id="totalRegistros">0</h2>
+                    <span>Manutenções registradas</span>
+                </div>
+            </article>
+
+            <article class="cartao-resumo">
+                <div class="resumo-icone verde">✓</div>
+                <div>
+                    <p>Concluídas</p>
+                    <h2 id="totalConcluidas">0</h2>
+                    <span>Serviços finalizados</span>
+                </div>
+            </article>
+
+            <article class="cartao-resumo">
+                <div class="resumo-icone laranja">R$</div>
+                <div>
+                    <p>Custo total</p>
+                    <h2 id="custoTotal">R$ 0,00</h2>
+                    <span>Valores registrados</span>
+                </div>
+            </article>
+
+            <article class="cartao-resumo">
+                <div class="resumo-icone vermelho">🚔</div>
+                <div>
+                    <p>Viaturas atendidas</p>
+                    <h2 id="totalViaturas">0</h2>
+                    <span>Viaturas com histórico</span>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="painel">
+
+            <div class="painel-cabecalho">
+                <div>
+                    <h2>Registros de manutenção</h2>
+                    <p>Pesquise os serviços e consulte os detalhes de cada registro.</p>
+                </div>
+            </div>
+
+            <div class="filtros">
+                <div class="campo-pesquisa">
+                    <span>⌕</span>
+                    <input
+                        type="text"
+                        id="pesquisa"
+                        placeholder="Pesquisar por placa, serviço ou responsável..."
+                    >
+                </div>
+
+                <select id="filtroTipo">
+                    <option value="">Todos os tipos</option>
+                    <option value="Preventiva">Preventiva</option>
+                    <option value="Corretiva">Corretiva</option>
+                </select>
+
+                <input
+                    type="date"
+                    id="filtroData"
+                    aria-label="Filtrar por data"
+                    title="Filtrar por data"
+                >
+            </div>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>VIATURA</th>
+                            <th>TIPO</th>
+                            <th>SERVIÇO REALIZADO</th>
+                            <th>DATA</th>
+                            <th>QUILOMETRAGEM</th>
+                            <th>CUSTO</th>
+                            <th>RESPONSÁVEL</th>
+                            <th>DETALHES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaHistorico">
+                        <tr>
+                            <td colspan="8" class="vazio">
+                                Nenhum registro de manutenção encontrado.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="rodape-tabela">
+                <span id="quantidadeRegistros">0 registros encontrados</span>
+            </div>
+
+        </section>
+
+        <section class="painel painel-detalhes">
+            <div class="painel-cabecalho">
+                <div>
+                    <h2>Detalhes do registro</h2>
+                    <p>Selecione um registro na tabela para consultar as informações completas.</p>
+                </div>
+            </div>
+
+            <div class="detalhes-conteudo" id="detalhesRegistro">
+                <div class="detalhes-vazio">
+                    <span>▤</span>
+                    <p>Nenhum registro selecionado.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

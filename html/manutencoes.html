@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manutenções | +Segurança</title>
+    <link rel="stylesheet" href="../css/manutencoes.css">
+    <script src="../js/manutencoes.js" defer></script>
+</head>
+<body>
+    <aside class="menu-lateral">
+        <a href="dashboard.html" class="marca">
+            <span class="marca-icone">✚</span>
+            <span>
+                <strong>+Segurança</strong>
+                <small>Gestão de Frota</small>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENU PRINCIPAL</p>
+
+        <nav>
+            <a href="dashboard.html" class="menu-link">▦ <span>Início</span></a>
+            <a href="viaturas.html" class="menu-link">🚔 <span>Viaturas</span></a>
+            <a href="manutencoes.html" class="menu-link ativo">🔧 <span>Manutenções</span></a>
+            <a href="preventivas.html" class="menu-link">◷ <span>Preventivas</span></a>
+            <a href="historico.html" class="menu-link">▤ <span>Histórico</span></a>
+        </nav>
+
+        <a href="login.html" class="sair">↪ <span>Sair do sistema</span></a>
+    </aside>
+
+    <main class="conteudo">
+        <header class="cabecalho">
+            <div>
+                <p class="caminho">Início / Manutenções</p>
+                <h1>Gestão de Manutenções</h1>
+                <p class="subtitulo">Registre e acompanhe os serviços realizados na frota.</p>
+            </div>
+
+            <div class="usuario">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Gestor da frota</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="boas-vindas">
+            <div>
+                <span class="etiqueta">CONTROLE DE SERVIÇOS</span>
+                <h2>Manutenções da frota</h2>
+                <p>Organize os serviços, custos e histórico de cada viatura.</p>
+            </div>
+            <div class="icone-destaque">🔧</div>
+        </section>
+
+        <section class="indicadores">
+            <article class="cartao-indicador">
+                <span class="indicador-icone azul">▤</span>
+                <div>
+                    <p>Total de registros</p>
+                    <h2 id="totalManutencoes">0</h2>
+                </div>
+            </article>
+
+            <article class="cartao-indicador">
+                <span class="indicador-icone laranja">◷</span>
+                <div>
+                    <p>Pendentes</p>
+                    <h2 id="totalPendentes">0</h2>
+                </div>
+            </article>
+
+            <article class="cartao-indicador">
+                <span class="indicador-icone verde">✓</span>
+                <div>
+                    <p>Concluídas</p>
+                    <h2 id="totalConcluidas">0</h2>
+                </div>
+            </article>
+
+            <article class="cartao-indicador">
+                <span class="indicador-icone roxo">R$</span>
+                <div>
+                    <p>Custo registrado</p>
+                    <h2 id="custoTotal">R$ 0,00</h2>
+                </div>
+            </article>
+        </section>
+
+        <section class="painel">
+            <div class="painel-cabecalho">
+                <div>
+                    <h2>Registros de manutenção</h2>
+                    <p>Consulte e gerencie os serviços da frota.</p>
+                </div>
+                <button class="botao-principal" id="abrirCadastro" type="button">
+                    + Registrar manutenção
+                </button>
+            </div>
+
+            <div class="filtros">
+                <div class="campo-pesquisa">
+                    <span>⌕</span>
+                    <input id="pesquisa" type="search"
+                        placeholder="Pesquisar por placa, descrição ou responsável...">
+                </div>
+
+                <select id="filtroTipo" aria-label="Filtrar por tipo">
+                    <option value="">Todos os tipos</option>
+                    <option value="Preventiva">Preventiva</option>
+                    <option value="Corretiva">Corretiva</option>
+                </select>
+
+                <select id="filtroStatus" aria-label="Filtrar por status">
+                    <option value="">Todos os status</option>
+                    <option value="Pendente">Pendente</option>
+                    <option value="Concluída">Concluída</option>
+                </select>
+            </div>
+
+            <div class="tabela-responsiva">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>VIATURA</th>
+                            <th>TIPO</th>
+                            <th>DATA</th>
+                            <th>DESCRIÇÃO</th>
+                            <th>CUSTO</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaManutencoes"></tbody>
+                </table>
+            </div>
+
+            <p class="mensagem-vazia" id="mensagemVazia">
+                Nenhuma manutenção registrada. Clique em “Registrar manutenção” para começar.
+            </p>
+
+            <div class="rodape-tabela">
+                <span id="quantidadeRegistros">0 registros</span>
+                <button id="limparPesquisa" class="botao-secundario" type="button">
+                    Limpar filtros
+                </button>
+            </div>
+        </section>
+
+        <footer>+Segurança · Gestão de Manutenção de Frota</footer>
+    </main>
+
+    <div class="modal" id="modalManutencao" aria-hidden="true">
+        <div class="modal-conteudo" role="dialog"
+             aria-modal="true" aria-labelledby="tituloModal">
+
+            <div class="modal-cabecalho">
+                <div>
+                    <span class="etiqueta">DADOS DO SERVIÇO</span>
+                    <h2 id="tituloModal">Registrar manutenção</h2>
+                    <p>Preencha os dados do serviço realizado ou planejado.</p>
+                </div>
+                <button id="fecharModal" class="botao-fechar"
+                    type="button" aria-label="Fechar">×</button>
+            </div>
+
+            <form id="formManutencao">
+                <input type="hidden" id="manutencaoId">
+
+                <div class="grade-formulario">
+                    <label class="campo-completo">
+                        Viatura *
+                        <select id="viaturaId" required>
+                            <option value="">Selecione uma viatura</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Tipo de manutenção *
+                        <select id="tipo" required>
+                            <option value="Preventiva">Preventiva</option>
+                            <option value="Corretiva">Corretiva</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Data da manutenção *
+                        <input id="dataManutencao" type="date" required>
+                    </label>
+
+                    <label>
+                        Quilometragem (km) *
+                        <input id="quilometragem" type="number"
+                            min="0" placeholder="15000" required>
+                    </label>
+
+                    <label>
+                        Custo (R$) *
+                        <input id="custo" type="number" min="0"
+                            step="0.01" placeholder="0,00" required>
+                    </label>
+
+                    <label class="campo-completo">
+                        Descrição do serviço *
+                        <textarea id="descricao" rows="3" maxlength="500"
+                            placeholder="Descreva o serviço ou problema identificado..."
+                            required></textarea>
+                    </label>
+
+                    <label class="campo-completo">
+                        Responsável
+                        <input id="responsavel" type="text" maxlength="100"
+                            placeholder="Nome do responsável pelo serviço">
+                    </label>
+
+                    <label>
+                        Status *
+                        <select id="status" required>
+                            <option value="Pendente">Pendente</option>
+                            <option value="Concluída">Concluída</option>
+                        </select>
+                    </label>
+                </div>
+
+                <p id="mensagemFormulario" class="mensagem-formulario"
+                    role="status"></p>
+
+                <div class="botoes-formulario">
+                    <button type="button" id="cancelarCadastro"
+                        class="botao-secundario">Cancelar</button>
+                    <button type="submit" class="botao-principal"
+                        id="salvarManutencao">Salvar manutenção</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="notificacao" class="notificacao" role="status"></div>
+</body>
+</html>

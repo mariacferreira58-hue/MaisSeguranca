@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventivas | +Segurança</title>
+
+    <link rel="stylesheet" href="../css/preventivas.css">
+    <script src="../js/preventivas.js" defer></script>
+</head>
+<body>
+
+    <aside class="menu-lateral">
+        <a href="dashboard.html" class="marca">
+            <span class="marca-icone">✚</span>
+            <span>
+                <strong>+Segurança</strong>
+                <small>Gestão de Frota</small>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENU PRINCIPAL</p>
+
+        <nav>
+            <a href="dashboard.html" class="menu-link">▦ <span>Início</span></a>
+            <a href="viaturas.html" class="menu-link">🚔 <span>Viaturas</span></a>
+            <a href="manutencoes.html" class="menu-link">🔧 <span>Manutenções</span></a>
+            <a href="preventivas.html" class="menu-link ativo">◷ <span>Preventivas</span></a>
+            <a href="historico.html" class="menu-link">▤ <span>Histórico</span></a>
+        </nav>
+
+        <a href="login.html" class="sair">↪ <span>Sair do sistema</span></a>
+    </aside>
+
+    <main class="conteudo">
+
+        <header class="cabecalho">
+            <div>
+                <h1>Manutenções preventivas</h1>
+                <p>Planeje e acompanhe as próximas manutenções da frota.</p>
+            </div>
+
+            <button class="botao-principal" id="abrirModal">
+                + Cadastrar preventiva
+            </button>
+        </header>
+
+        <section class="resumo">
+
+            <article class="cartao-resumo">
+                <div class="resumo-icone azul">◷</div>
+                <div>
+                    <p>Total de preventivas</p>
+                    <h2 id="totalPreventivas">0</h2>
+                    <span>Cadastros registrados</span>
+                </div>
+            </article>
+
+            <article class="cartao-resumo">
+                <div class="resumo-icone laranja">!</div>
+                <div>
+                    <p>Próximas manutenções</p>
+                    <h2 id="proximasPreventivas">0</h2>
+                    <span>Para os próximos 30 dias</span>
+                </div>
+            </article>
+
+            <article class="cartao-resumo">
+                <div class="resumo-icone vermelho">◷</div>
+                <div>
+                    <p>Preventivas atrasadas</p>
+                    <h2 id="atrasadasPreventivas">0</h2>
+                    <span>Precisam de atenção</span>
+                </div>
+            </article>
+
+            <article class="cartao-resumo">
+                <div class="resumo-icone verde">✓</div>
+                <div>
+                    <p>Concluídas</p>
+                    <h2 id="concluidasPreventivas">0</h2>
+                    <span>Serviços finalizados</span>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="painel">
+
+            <div class="painel-cabecalho">
+                <div>
+                    <h2>Programação de preventivas</h2>
+                    <p>Consulte e gerencie o planejamento de manutenção.</p>
+                </div>
+            </div>
+
+            <div class="filtros">
+                <div class="campo-pesquisa">
+                    <span>⌕</span>
+                    <input
+                        type="text"
+                        id="pesquisa"
+                        placeholder="Pesquisar por placa, viatura ou serviço..."
+                    >
+                </div>
+
+                <select id="filtroStatus">
+                    <option value="">Todos os status</option>
+                    <option value="Agendada">Agendada</option>
+                    <option value="Em andamento">Em andamento</option>
+                    <option value="Concluída">Concluída</option>
+                    <option value="Atrasada">Atrasada</option>
+                </select>
+            </div>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>VIATURA</th>
+                            <th>SERVIÇO PREVENTIVO</th>
+                            <th>DATA PREVISTA</th>
+                            <th>QUILOMETRAGEM</th>
+                            <th>STATUS</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaPreventivas">
+                        <tr>
+                            <td colspan="6" class="vazio">
+                                Nenhuma preventiva cadastrada.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="rodape-tabela">
+                <span id="totalRegistros">0 registros encontrados</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div class="modal" id="modalPreventiva">
+        <div class="modal-conteudo">
+
+            <div class="modal-cabecalho">
+                <div>
+                    <h2 id="tituloModal">Cadastrar preventiva</h2>
+                    <p>Preencha os dados do planejamento.</p>
+                </div>
+
+                <button class="fechar-modal" id="fecharModal" type="button">×</button>
+            </div>
+
+            <form id="formPreventiva">
+
+                <input type="hidden" id="idPreventiva">
+
+                <div class="campo">
+                    <label for="viatura">Viatura *</label>
+                    <input
+                        type="text"
+                        id="viatura"
+                        placeholder="Ex.: ABC1D23 - Chevrolet Trailblazer"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="servico">Serviço preventivo *</label>
+                    <input
+                        type="text"
+                        id="servico"
+                        placeholder="Ex.: Troca de óleo e filtros"
+                        required
+                    >
+                </div>
+
+                <div class="campos-duplos">
+                    <div class="campo">
+                        <label for="dataPrevista">Data prevista *</label>
+                        <input type="date" id="dataPrevista" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="quilometragem">Quilometragem *</label>
+                        <input
+                            type="number"
+                            id="quilometragem"
+                            min="0"
+                            placeholder="Ex.: 45000"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="status">Status *</label>
+                    <select id="status" required>
+                        <option value="Agendada">Agendada</option>
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Concluída">Concluída</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="observacoes">Observações</label>
+                    <textarea
+                        id="observacoes"
+                        rows="3"
+                        placeholder="Informações adicionais sobre a preventiva..."
+                    ></textarea>
+                </div>
+
+                <div class="modal-acoes">
+                    <button type="button" class="botao-secundario" id="cancelarModal">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="botao-principal">
+                        Salvar preventiva
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
